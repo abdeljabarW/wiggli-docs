@@ -344,8 +344,7 @@ class ReviewProcessManager
 }
 ```
 
-Add The Command Dispatch To The Api
-------------
+## Add The Command Dispatch To The Api
 
 ### Create The Filter File
 

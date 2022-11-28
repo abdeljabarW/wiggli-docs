@@ -1,6 +1,8 @@
 CQRS-ES - Resource Creation Example
 -------
 
+## 1. The Command
+
 ### Create The Command
 
 ```php
@@ -167,6 +169,8 @@ return [
 ];
 ```
 
+## 2. The Event
+
 ### Create The Event
 
 ```php
@@ -295,6 +299,8 @@ return [
 ];
 ```
 
+## 3. Dispatching The Event On The Aggregate And {AggregateName}ProcessManager
+
 ### Add {commandName}WithData Method To The Aggregate
 
 ```php
@@ -319,35 +325,6 @@ final class Review extends AggregateRoot
         ));
 
         return $review;
-    }
-}
-```
-
-### Add when{EventName} Method To The Aggregate
-
-```php
-<?php
-
-namespace Company\Model\Aggregate;
-
-use Company\Model\Event\ReviewWasCreated;
-use Company\Model\ValueObject\ReviewId;
-use Prooph\EventSourcing\AggregateRoot;
-use User\Model\ValueObject\UserId;
-
-final class Review extends AggregateRoot
-{
-    // rest of code
-    /**
-     * @param ReviewWasCreated $event
-     * @return void
-     */
-    protected function whenReviewWasCreated(ReviewWasCreated $event)
-    {
-        $this->id = $event->reviewId();
-        $this->userId = $event->userId();
-        $this->freelancerId = $event->freelancerId();
-        $this->comment = $event->comment();
     }
 }
 ```
@@ -383,8 +360,36 @@ class ReviewProcessManager
 }
 ```
 
-Add The Command Dispatch To The Api
-------------
+### Add when{EventName} Method To The Aggregate
+
+```php
+<?php
+
+namespace Company\Model\Aggregate;
+
+use Company\Model\Event\ReviewWasCreated;
+use Company\Model\ValueObject\ReviewId;
+use Prooph\EventSourcing\AggregateRoot;
+use User\Model\ValueObject\UserId;
+
+final class Review extends AggregateRoot
+{
+    // rest of code
+    /**
+     * @param ReviewWasCreated $event
+     * @return void
+     */
+    protected function whenReviewWasCreated(ReviewWasCreated $event)
+    {
+        $this->id = $event->reviewId();
+        $this->userId = $event->userId();
+        $this->freelancerId = $event->freelancerId();
+        $this->comment = $event->comment();
+    }
+}
+```
+
+## 4. Add The Command Dispatch To The Api
 
 ### Create The Filter File
 
