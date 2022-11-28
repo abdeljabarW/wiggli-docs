@@ -266,95 +266,7 @@ return [
 ];
 ```
 
-### Add {command}WithData Method To The Aggregate
-
-```php
-<?php
-
-namespace Company\Model\Aggregate;
-
-use Company\Model\Event\ReviewWasCreated;
-use Company\Model\ValueObject\ReviewId;
-use Prooph\EventSourcing\AggregateRoot;
-use User\Model\ValueObject\UserId;
-
-final class Review extends AggregateRoot
-{
-    // rest of code
-    public static function createReviewWithData(ReviewId $reviewId, UserId $userId, string $freelancerId, string $comment): self
-    {
-        $review = new self();
-
-        $review->recordThat(ReviewWasCreated::withData(
-            $reviewId, $userId, $freelancerId, $comment
-        ));
-
-        return $review;
-    }
-}
-```
-
-### Add when{EventOccurred} Method To The Aggregate
-
-```php
-<?php
-
-namespace Company\Model\Aggregate;
-
-use Company\Model\Event\ReviewWasCreated;
-use Company\Model\ValueObject\ReviewId;
-use Prooph\EventSourcing\AggregateRoot;
-use User\Model\ValueObject\UserId;
-
-final class Review extends AggregateRoot
-{
-    // rest of code
-    /**
-     * @param ReviewWasCreated $event
-     * @return void
-     */
-    protected function whenReviewWasCreated(ReviewWasCreated $event)
-    {
-        $this->id = $event->reviewId();
-        $this->userId = $event->userId();
-        $this->freelancerId = $event->freelancerId();
-        $this->comment = $event->comment();
-    }
-}
-```
-
-### Add on{EventOccurred} to {Aggregate}ProcessManager
-
-```php
-<?php
-
-namespace Company\ProcessManager;
-
-use Company\Projection\ReviewProjector;
-use Company\Model\Event\ReviewWasCreated;
-
-class ReviewProcessManager
-{
-    // rest of code
-    /**
-     * @param ReviewWasCreated $event
-     * @return void
-     */
-    public function onReviewWasCreated(ReviewWasCreated $event)
-    {
-        $data = [
-            self::ID            => $event->reviewId()->toString(),
-            self::USER_ID       => $event->userId()->toString(),
-            self::FREELANCER_ID => $event->freelancerId(),
-            self::COMMENT       => $event->comment(),
-        ];
-
-        $this->reviewProjector->insert($data);
-    }
-}
-```
-
-### Link The Event To {Aggregate}ProcessManager
+### Link The Event To {AggregateName}ProcessManager
 
 ```php
 <?php
@@ -383,7 +295,35 @@ return [
 ];
 ```
 
-### Add **createReviewWithData** and **whenReviewWasCreated** method to **Review** aggregate
+### Add {commandName}WithData Method To The Aggregate
+
+```php
+<?php
+
+namespace Company\Model\Aggregate;
+
+use Company\Model\Event\ReviewWasCreated;
+use Company\Model\ValueObject\ReviewId;
+use Prooph\EventSourcing\AggregateRoot;
+use User\Model\ValueObject\UserId;
+
+final class Review extends AggregateRoot
+{
+    // rest of code
+    public static function createReviewWithData(ReviewId $reviewId, UserId $userId, string $freelancerId, string $comment): self
+    {
+        $review = new self();
+
+        $review->recordThat(ReviewWasCreated::withData(
+            $reviewId, $userId, $freelancerId, $comment
+        ));
+
+        return $review;
+    }
+}
+```
+
+### Add when{EventName} Method To The Aggregate
 
 ```php
 <?php
@@ -399,23 +339,9 @@ final class Review extends AggregateRoot
 {
     // rest of code
     /**
-     * @param ReviewId $reviewId
-     * @param UserId $userId
-     * @param UserId $freelancerId
-     * @param string $comment
-     * @return static
+     * @param ReviewWasCreated $event
+     * @return void
      */
-    public static function createReviewWithData(ReviewId $reviewId, UserId $userId, UserId $freelancerId, CompanyId $companyId, string $comment): self
-    {
-        $review = new self();
-
-        $review->recordThat(ReviewWasCreated::withData(
-            $reviewId, $userId, $freelancerId, $companyId, $comment
-        ));
-
-        return $review;
-    }
-    
     protected function whenReviewWasCreated(ReviewWasCreated $event)
     {
         $this->id = $event->reviewId();
@@ -426,10 +352,15 @@ final class Review extends AggregateRoot
 }
 ```
 
-### Add **OnReviewWasCreated** method to **ReviewProcessManager**
+### Add on{EventName} to {AggregateName}ProcessManager
 
 ```php
 <?php
+
+namespace Company\ProcessManager;
+
+use Company\Projection\ReviewProjector;
+use Company\Model\Event\ReviewWasCreated;
 
 class ReviewProcessManager
 {
@@ -450,7 +381,6 @@ class ReviewProcessManager
         $this->reviewProjector->insert($data);
     }
 }
-  
 ```
 
 Add The Command Dispatch To The Api
@@ -508,7 +438,7 @@ return [
 ];
 ```
 
-### Modify CreateReviewResource
+### Modify The Api Resource
 
 ```php
 <?php
