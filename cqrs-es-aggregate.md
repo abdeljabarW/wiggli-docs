@@ -1,6 +1,6 @@
 # Create Aggregate And Related Classes
 
-- [Create {Aggregate}Collection Repository Interface](#create-aggregatecollection-repository-interface)
+- [Create *Aggregate*Collection Repository Interface](#create-aggregatecollection-repository-interface)
 - [Add *AGGREGATE*_COLLECTION Constant To **MongoDb** Collections](#add-aggregate_collection-constant-to-mongodb-collections)
 - [Register The {Aggregate}Collection Repository Factory](#register-the-aggregatecollection-repository-factory)
 - [Create *Aggregate*Id class](#create-aggregateid-class)
