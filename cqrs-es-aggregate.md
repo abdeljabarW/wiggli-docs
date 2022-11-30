@@ -1,22 +1,21 @@
-Create Aggregate Related Classes
--------
+# Create Aggregate And Related Classes
 
 - [Create {Aggregate}Collection Repository Interface](#create-aggregatecollection-repository-interface)
-- [Add {AGGREGATE}_COLLECTION Constant To **MongoDb** Collections](#add-aggregate_collection-constant-to-mongodb-collections)
+- [Add *AGGREGATE*_COLLECTION Constant To **MongoDb** Collections](#add-aggregate_collection-constant-to-mongodb-collections)
 - [Register The {Aggregate}Collection Repository Factory](#register-the-aggregatecollection-repository-factory)
-- [Create {Aggregate}Id class](#create-aggregateid-class)
-- [Create EventStore{Aggregate}Collection](#create-eventstoreaggregatecollection)
+- [Create *Aggregate*Id class](#create-aggregateid-class)
+- [Create EventStore*Aggregate*Collection](#create-eventstoreaggregatecollection)
 - [Create The Aggregate](#create-the-aggregate)
-- [Link The Aggregate to EventStore{Aggregate}Collection](#link-the-aggregate-to-eventstoreaggregatecollection)
-- [Link The Aggregate To The {Aggregate}Collection](#link-the-aggregate-to-the-aggregatecollection)
-- [Create {Aggregate}Projector](#create-aggregateprojector)
-- [Create {Aggregate}ProjectorFactory](#create-aggregateprojectorfactory)
-- [Register The {Aggregate}Projector Factory](#register-the-aggregateprojector-factory)
-- [Create {Aggregate}ProcessManager](#create-aggregateprocessmanager)
-- [Create {Aggregate}ProcessManagerFactory](#create-aggregateprocessmanagerfactory)
-- [Register {Aggregate}ProcessManager factory](#register-aggregateprocessmanager-factory)
+- [Link The Aggregate to EventStore*Aggregate*Collection](#link-the-aggregate-to-eventstoreaggregatecollection)
+- [Link The Aggregate To The *Aggregate*Collection](#link-the-aggregate-to-the-aggregatecollection)
+- [Create *Aggregate*Projector](#create-aggregateprojector)
+- [Create *Aggregate*ProjectorFactory](#create-aggregateprojectorfactory)
+- [Register The *Aggregate*Projector Factory](#register-the-aggregateprojector-factory)
+- [Create *Aggregate*ProcessManager](#create-aggregateprocessmanager)
+- [Create *Aggregate*ProcessManagerFactory](#create-aggregateprocessmanagerfactory)
+- [Register *Aggregate*ProcessManager factory](#register-aggregateprocessmanager-factory)
 
-## Create {Aggregate}Collection Repository Interface
+## Create *Aggregate*Collection Repository Interface
 
 ```php
 <?php
@@ -36,7 +35,7 @@ interface ReviewCollection
 }
 ```
 
-## Add {AGGREGATE}_COLLECTION Constant To **MongoDb** Collections
+## Add *AGGREGATE*_COLLECTION Constant To **MongoDb** Collections
 
 ```php
 <?php
@@ -48,7 +47,7 @@ class Collections
 }
 ```
 
-## Register The {Aggregate}Collection Repository Factory
+## Register The *Aggregate*Collection Repository Factory
 
 ```php
 <?php
@@ -70,7 +69,7 @@ return [
 ];
 ```
 
-## Create {Aggregate}Id class
+## Create *Aggregate*Id class
 
 ```php
 <?php
@@ -113,7 +112,7 @@ final class ReviewId
 }
 ```
 
-## Create EventStore{Aggregate}Collection
+## Create EventStore *Aggregate*Collection
 
 ```php
 <?php
@@ -196,7 +195,7 @@ final class Review extends AggregateRoot
 }
 ```
 
-## Link The Aggregate to EventStore{Aggregate}Collection
+## Link The Aggregate to EventStore*Aggregate*Collection
 
 ```php
 <?php
@@ -222,7 +221,7 @@ return [
 ];
 ```
 
-## Link The Aggregate To The {Aggregate}Collection
+## Link The Aggregate To The *Aggregate*Collection
 
 ```php
 <?php
@@ -246,7 +245,7 @@ return [
 ];
 ```
 
-## Create {Aggregate}Projector
+## Create *Aggregate*Projector
 
 ```php
 <?php
@@ -282,7 +281,7 @@ final class ReviewProjector
 }
 ```
 
-## Create {Aggregate}ProjectorFactory
+## Create *Aggregate*ProjectorFactory
 
 ```php
 <?php
@@ -306,7 +305,7 @@ class ReviewProjectorFactory
 }
 ```
 
-## Register The {Aggregate}Projector Factory
+## Register The *Aggregate*Projector Factory
 
 ```php
 <?php
@@ -328,7 +327,7 @@ return [
 ];
 ```
 
-## Create {Aggregate}ProcessManager
+## Create *Aggregate*ProcessManager
 
 ```php
 <?php
@@ -357,7 +356,7 @@ class ReviewProcessManager
 }
 ```
 
-## Create {Aggregate}ProcessManagerFactory
+## Create *Aggregate*ProcessManagerFactory
 
 ```php
 <?php
@@ -381,7 +380,7 @@ final class ReviewProcessManagerFactory
 }
 ```
 
-## Register {Aggregate}ProcessManager factory
+## Register *Aggregate*ProcessManager factory
 
 ```php
 <?php
