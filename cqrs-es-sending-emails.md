@@ -1,6 +1,18 @@
-# Adding An Email Notification
+Sending An Email
+----
 
-### Create Send{EmailName}Email
+- [Create Send{EmailName}Email](#create-send-emailname-email)
+- [Create Send{EmailName}EmailFactory](#create-send-emailname-emailfactory)
+- [Register the Send{EmailName}EmailFactory](#register-the-send-emailname-emailfactory)
+- [Create {EmailName}EmailDataWasPrepared event](#create--emailname-emaildatawasprepared-event)
+- [Add on{EmailName}EmailDataWasPrepared method to EmailProjector](#add-on-emailname-emaildatawasprepared-method-to-emailprojector)
+- [Add when{EmailName}EmailDataWasPrepared to Email aggregate](#add-when-emailname-emaildatawasprepared-to-email-aggregate)
+- [Add Send{EmailName}Email::EMAIL_NAME case to Email::prepareEmailDataWithData](#add-send-emailname-email--email-name-case-to-email--prepareemaildatawithdata)
+- [Register {EmailName}EmailDataWasPrepared event](#register--emailname-emaildatawasprepared-event)
+- [Link the {EmailName}EmailWasPrepared event to NotificationProjector and SendCreateReviewEmail](#link-the--emailname-emailwasprepared-event-to-notificationprojector-and-sendcreatereviewemail)
+- [Create email template](#create-email-template)
+
+## Create Send{EmailName}Email
 
 ```php
 <?php
@@ -101,7 +113,7 @@ final class SendCreateReviewEmail
 }
 ```
 
-### Create Send{EmailName}EmailFactory
+## Create Send{EmailName}EmailFactory
 
 ```php
 <?php
@@ -161,7 +173,7 @@ class SendCreateReviewEmailFactory implements RequiresConfig, RequiresMandatoryO
 }
 ```
 
-### Register the Send{EmailName}EmailFactory
+## Register the Send{EmailName}EmailFactory
 
 ```php
 <?php
@@ -179,7 +191,7 @@ return [
 ];
 ```
 
-### Create {EmailName}EmailDataWasPrepared event
+## Create {EmailName}EmailDataWasPrepared event
 
 ```php
 <?php
@@ -193,7 +205,7 @@ final class CreateReviewEmailDataWasPrepared extends AbstractExternalEmailDataWa
 }
 ```
 
-### Add on{EmailName}EmailDataWasPrepared method to EmailProjector
+## Add on{EmailName}EmailDataWasPrepared method to EmailProjector
 
 ```php
 <?php
@@ -222,7 +234,7 @@ class EmailProjector {
 }
 ```
 
-### Add when{EmailName}EmailDataWasPrepared to Email aggregate
+## Add when{EmailName}EmailDataWasPrepared to Email aggregate
 
 ```php
 <?php
@@ -241,7 +253,7 @@ class Email extends AggregateRoot {
 }
 ```
 
-### Add Send{EmailName}Email::EMAIL_NAME case to Email::prepareEmailDataWithData
+## Add Send{EmailName}Email::EMAIL_NAME case to Email::prepareEmailDataWithData
 
 ```php
 <?php
@@ -288,7 +300,7 @@ class Email extends AggregateRoot {
 }
 ```
 
-### Register {EmailName}EmailDataWasPrepared event
+## Register {EmailName}EmailDataWasPrepared event
 
 ```php
 <?php
@@ -309,7 +321,7 @@ return [
 ];
 ```
 
-### Link the {EmailName}EmailWasPrepared event to NotificationProjector and SendCreateReviewEmail
+## Link the {EmailName}EmailWasPrepared event to NotificationProjector and SendCreateReviewEmail
 
 ```php
 <?php
@@ -337,7 +349,7 @@ return [
 ];
 ```
 
-### Create email template
+## Create email template
 
 ```html
 <h1>A new review was written</h1>

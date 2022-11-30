@@ -1,6 +1,26 @@
 CQRS-ES - Resource Creation Example
 -------
 
+- [1. The Command](#1-the-command)
+    * [Create The Command](#create-the-command)
+    * [Create The Command Handler](#create-the-command-handler)
+    * [Create The Command Handler Factory](#create-the-command-handler-factory)
+    * [Register The Command Handler Factory](#register-the-command-handler-factory)
+    * [Link The Command To The Handler](#link-the-command-to-the-handler)
+- [2. The Event](#2-the-event)
+    * [Create The Event](#create-the-event)
+    * [Register The Event](#register-the-event)
+    * [Link The Event To {AggregateName}ProcessManager](#link-the-event-to--aggregatename-processmanager)
+- [3. Dispatching The Event On The Aggregate And {AggregateName}ProcessManager](#3-dispatching-the-event-on-the-aggregate-and--aggregatename-processmanager)
+    * [Add {commandName}WithData Method To The Aggregate](#add--commandname-withdata-method-to-the-aggregate)
+    * [Add on{EventName} to {AggregateName}ProcessManager](#add-on-eventname--to--aggregatename-processmanager)
+    * [Add when{EventName} Method To The Aggregate](#add-when-eventname--method-to-the-aggregate)
+- [4. Add The Command Dispatch To The Api](#4-add-the-command-dispatch-to-the-api)
+    * [Create The Filter File](#create-the-filter-file)
+    * [Add {FILTER_NAME}_FILTER constant to the FilterService class](#add--filter-name--filter-constant-to-the-filterservice-class)
+    * [Register The New Filter File](#register-the-new-filter-file)
+    * [Modify The Api Resource](#modify-the-api-resource)
+
 ## 1. The Command
 
 ### Create The Command

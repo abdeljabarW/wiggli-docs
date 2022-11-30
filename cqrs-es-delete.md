@@ -1,4 +1,25 @@
-# CQRS
+CQRS-ES - Resource Deletion Example
+----
+
+- [1. The Command](#1-the-command)
+    * [Create The Command](#create-the-command)
+    * [Create The Command Handler](#create-the-command-handler)
+    * [Create Command Handler Factory](#create-command-handler-factory)
+    * [Register The Command Handler Factory](#register-the-command-handler-factory)
+- [2. The Event](#2-the-event)
+    * [Create The Event](#create-the-event)
+    * [Register The Event](#register-the-event)
+    * [Link The Event To {Aggregate}ProcessManager](#link-the-event-to--aggregate-processmanager)
+- [3. Dispatching The Event On The Aggregate And {AggregateName}ProcessManager](#3-dispatching-the-event-on-the-aggregate-and--aggregatename-processmanager)
+    * [Add {commandName}WithData To The Aggregate](#add--commandname-withdata-to-the-aggregate)
+    * [Add On{EventName} Method To {Aggregate}ProcessManager](#add-on-eventname--method-to--aggregate-processmanager)
+    * [Add when{EventName} Method To The Aggregate](#add-when-eventname--method-to-the-aggregate)
+- [4. Add The Command Dispatch To The Api](#4-add-the-command-dispatch-to-the-api)
+    * [Create The Filter File](#create-the-filter-file)
+    * [Add {FILTER_NAME}_FILTER constant to the FilterService class](#add--filter-name--filter-constant-to-the-filterservice-class)
+    * [Save The Filter File With The FILTER_NAME As A Key](#save-the-filter-file-with-the-filter-name-as-a-key)
+    * [Modify The Api Resource](#modify-the-api-resource)
+
 ## 1. The Command
 
 ### Create The Command

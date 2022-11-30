@@ -1,6 +1,16 @@
-# Adding A Push Notification
+Adding A Push Notification
+----
 
-### Create {NotificationName}Notification
+- [Create {NotificationName}Notification](#create--notificationname-notification)
+- [Create {NotificationName}NotificationFactory](#create--notificationname-notificationfactory)
+- [Register {NotificationName}NotificationFactory](#register--notificationname-notificationfactory)
+- [Create {NotificationName}NotificationWasPrepared event](#create--notificationname-notificationwasprepared-event)
+- [Add on{NotificationName}NotificationDataWasPrepared method to NotificationProjector](#add-on-notificationname-notificationdatawasprepared-method-to-notificationprojector)
+- [Add when{NotificationName}NotificationDataWasPrepared to Notification aggregate](#add-when-notificationname-notificationdatawasprepared-to-notification-aggregate)
+- [Register the {NotificationName}NotificationWasPrepared event](#register-the--notificationname-notificationwasprepared-event)
+- [Link the {NotificationName}NotificationWasPrepared event to NotificationProjector and SendCreateReviewNotification](#link-the--notificationname-notificationwasprepared-event-to-notificationprojector-and-sendcreatereviewnotification)
+
+## Create {NotificationName}Notification
 
 ```php
 <?php
@@ -84,7 +94,7 @@ class SendCreateReviewNotification
 }
 ```
 
-### Create {NotificationName}NotificationFactory
+## Create {NotificationName}NotificationFactory
 
 ```php
 <?php
@@ -114,7 +124,7 @@ class SendCreateReviewNotificationFactory
 }
 ```
 
-### Register {NotificationName}NotificationFactory
+## Register {NotificationName}NotificationFactory
 
 ```php
 <?php
@@ -135,7 +145,7 @@ return [
 ];
 ```
 
-### Create {NotificationName}NotificationWasPrepared event
+## Create {NotificationName}NotificationWasPrepared event
 
 ```php
 <?php
@@ -148,7 +158,7 @@ class CreateReviewNotificationDataWasPrepared extends AbstractNotificationDataWa
 }
 ```
 
-### Add on{NotificationName}NotificationDataWasPrepared method to NotificationProjector
+## Add on{NotificationName}NotificationDataWasPrepared method to NotificationProjector
 
 ```php
 <?php
@@ -178,7 +188,7 @@ final class NotificationProjector
 }
 ```
 
-### Add when{NotificationName}NotificationDataWasPrepared to Notification aggregate
+## Add when{NotificationName}NotificationDataWasPrepared to Notification aggregate
 
 ```php
 <?php
@@ -202,7 +212,7 @@ class Notification extends AggregateRoot {
 }
 ```
 
-### Register the {NotificationName}NotificationWasPrepared event
+## Register the {NotificationName}NotificationWasPrepared event
 
 ```php
 <?php
@@ -226,7 +236,7 @@ return [
 ];
 ```
 
-### Link the {NotificationName}NotificationWasPrepared event to NotificationProjector and SendCreateReviewNotification
+## Link the {NotificationName}NotificationWasPrepared event to NotificationProjector and SendCreateReviewNotification
 
 ```php
 <?php

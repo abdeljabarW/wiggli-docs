@@ -1,5 +1,22 @@
-Create Command Track{EmailName}Email
--------------------------------------
+Tracking An Email
+----
+
+- [Create Command Track{EmailName}Email](#create-command-track-emailname-email)
+- [Create Command Handler Track{EmailName}EmailHandler](#create-command-handler-track-emailname-emailhandler)
+- [Create Track{EmailName}EmailHandlerFactory](#create-track-emailname-emailhandlerfactory)
+- [Register Track{EmailName}EmailHandlerFactory](#register-track-emailname-emailhandlerfactory)
+- [Link Track{EmailName}Email command to TrackCreateReviewEmailHandler](#link-track-emailname-email-command-to-trackcreatereviewemailhandler)
+- [Create Event {EmailName}EmailWasSent](#create-event--emailname-emailwassent)
+- [Register Event {EmailName}EmailWasSent](#register-event--emailname-emailwassent)
+- [Link Event {EmailName}EmailWasSent with EmailProjector](#link-event--emailname-emailwassent-with-emailprojector)
+- [Link Event {EmailName}EmailWasSent with ReviewProcessManager](#link-event--emailname-emailwassent-with-reviewprocessmanager)
+- [Add on{EmailName}EmailWasSent to ReviewProcessManager](#add-on-emailname-emailwassent-to-reviewprocessmanager)
+- [Add track{EmailName}WithData method to Aggregate Review](#add-track-emailname-withdata-method-to-aggregate-review)
+- [Add when{EmailName}EmailWasSent method to Aggregate Review](#add-when-emailname-emailwassent-method-to-aggregate-review)
+- [Register create_review.html template](#register-create-reviewhtml-template)
+- [Register Send{EmailName}Email Notification into EmailType Helper](#register-send-emailname-email-notification-into-emailtype-helper)
+
+## Create Command Track{EmailName}Email
 
 ```php
 <?php
@@ -71,8 +88,7 @@ class TrackCreateReviewEmail extends Command implements PayloadConstructable
 }
 ```
 
-Create Command Handler Track{EmailName}EmailHandler
-----------------------------------------------------
+## Create Command Handler Track{EmailName}EmailHandler
 
 ```php
 <?php
@@ -102,8 +118,7 @@ class TrackCreateReviewEmailHandlerFactory
 }
 ```
 
-Create Track{EmailName}EmailHandlerFactory
--------------------------------------------
+## Create Track{EmailName}EmailHandlerFactory
 
 ```php
 <?php
@@ -133,8 +148,7 @@ class TrackCreateReviewEmailHandlerFactory
 }
 ```
 
-Register Track{EmailName}EmailHandlerFactory
----------------------------------------------
+## Register Track{EmailName}EmailHandlerFactory
 
 ```php
 <?php
@@ -155,8 +169,7 @@ return [
 ];
 ```
 
-Link Track{EmailName}Email command to TrackCreateReviewEmailHandler
---------------------------------------------------------------------
+## Link Track{EmailName}Email command to TrackCreateReviewEmailHandler
 
 ```php
 <?php
@@ -186,8 +199,7 @@ return [
 ];
 ```
 
-Create Event {EmailName}EmailWasSent
--------------------------------------
+## Create Event {EmailName}EmailWasSent
 
 ```php
 <?php
@@ -243,8 +255,7 @@ class CreateReviewEmailWasSent extends AbstractEmailWasSent
 }
 ```
 
-Register Event {EmailName}EmailWasSent
----------------------------------------
+## Register Event {EmailName}EmailWasSent
 
 ```php
 <?php
@@ -268,8 +279,7 @@ return [
 ];
 ```
 
-Link Event {EmailName}EmailWasSent with EmailProjector
--------------------------------------------------------
+## Link Event {EmailName}EmailWasSent with EmailProjector
 
 ```php
 <?php
@@ -298,8 +308,7 @@ return [
 ];
 ```
 
-Link Event {EmailName}EmailWasSent with ReviewProcessManager
--------------------------------------------------------------
+## Link Event {EmailName}EmailWasSent with ReviewProcessManager
 
 ```php
 <?php
@@ -328,8 +337,7 @@ return [
 ];
 ```
 
-Add on{EmailName}EmailWasSent to ReviewProcessManager
-------------------------------------------------------
+## Add on{EmailName}EmailWasSent to ReviewProcessManager
 
 ```php
 <?php
@@ -356,8 +364,7 @@ class ReviewProcessManager
 }
 ```
 
-Add track{EmailName}WithData method to Aggregate Review
---------------------------------------------------------
+## Add track{EmailName}WithData method to Aggregate Review
 
 ```php
 <?php
@@ -393,8 +400,7 @@ final class Review extends AggregateRoot
 }
 ```
 
-Add when{EmailName}EmailWasSent method to Aggregate Review
------------------------------------------------------------
+## Add when{EmailName}EmailWasSent method to Aggregate Review
 
 ```php
 <?php
@@ -420,8 +426,7 @@ final class Review extends AggregateRoot
 }
 ```
 
-Register create_review.html template
--------------------------------------
+## Register create_review.html template
 
 ```php
 <?php
@@ -436,8 +441,7 @@ namespace {
 }
 ```
 
-Register Send{EmailName}Email Notification into EmailType Helper
------------------------------------------------------------------
+## Register Send{EmailName}Email Notification into EmailType Helper
 
 ```php
 <?php
